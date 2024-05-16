@@ -4,7 +4,7 @@ export default function Post({title, summary, cover,content, createdAt, author})
     return(
         <div className='post'>
             <div className='image'>
-            <img src='https://images.lifestyleasia.com/wp-content/uploads/sites/6/2024/01/31141627/south-korean-singer-actress-iu-boyfriend-personal-life-lee-jong-suk-bts-v.jpg'/>
+            <img src={'http://localhost:4000/'+cover} alt=''/>
             </div>
             <div className="texts">
             <h2>{title}</h2>
