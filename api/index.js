@@ -5,12 +5,14 @@ const User = require('./models/User');
 const bcrypt = require('bcryptjs');
 const app = express();
 const jwt = require('jsonwebtoken');
+const cookieParser = require('cookie-parser');
 
 const salt = bcrypt.genSaltSync(10);
 const secret = "djfsdbalhgdjlshfg"
 
 app.use(cors({credentials:true, origin:'http://localhost:3000'}));
 app.use(express.json());
+app.use(cookieParser());
 
 mongoose.connect('mongodb+srv://oliviahe0111:GI85DK5XgvdgJLId@cluster0.wsfnpkx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
 
@@ -44,6 +46,17 @@ app.post('/login', async (req,res) =>{
     }
 
 });
+
+app.get('/profile', (req, res)=>{
+    const {token} = req.cookies;
+    jwt.verify(token, secret, {}, (err, info)=>{
+        if (err) throw err;
+        res.json(info);
+
+    })
+});
+
+
 
 app.listen(4000, () => {
     console.log('Server is running on port 4000');
