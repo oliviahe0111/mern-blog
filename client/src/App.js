@@ -7,7 +7,7 @@ import IndexPage from './pages/IndexPage';
 import LoginPage from './pages/Loginpage';
 import RegisterPage from './pages/RegisterPage';
 import { UserContextProvider } from './UserContext';
-import CreatePost from './pages/CreatePage';
+import CreatePost from './pages/CreatePost';
 
 
 function App() {
