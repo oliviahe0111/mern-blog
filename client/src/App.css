@@ -7,8 +7,7 @@ body{
 }
 
 img{
-  max-width:100%;
-
+  max-width:50%;
 }
 
 main{
@@ -42,9 +41,20 @@ header nav{
 
 div.post{
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: 1fr;
   gap: 20px;
   margin-bottom: 30px;
+}
+
+@media screen and (min-width: 768px){
+  div.post{
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+
+  img{
+    max-width:100%;
+  }
+  
 }
 
 div.post div.image{
@@ -53,7 +63,13 @@ div.post div.image{
 
 div.post div.texts h2{
   margin:0;
+  text-decoration: none;
   font-size:1.8rem;
+}
+
+div.post div.texts a{
+  text-decoration: none;
+  color: inherit;
 }
 
 div.post p.info{
@@ -102,4 +118,47 @@ button{
 
 form.login h1, form.register h1{
   text-align: center;
+}
+
+div.post-page div.image {
+  max-height: 300px;
+  display: flex;
+  overflow: hidden;
+  align-items: center;  /* Centers the image vertically */
+  justify-content: center;  /* Centers the image horizontally */
+}
+
+/* Image specific styles */
+div.post-page div.image img {
+  max-height: 100%;  /* Ensures the image does not exceed the container's height */
+  object-fit: contain;  /* Maintains the aspect ratio and fits the image within the container */
+  width: auto;  /* Maintains the image width based on its aspect ratio */
+}
+
+div.post-page a {
+  color :#333;
+  text-decoration: underline;
+}
+
+div.post-page h1 {
+  text-align: center;
+  margin: 10px 0 5px;
+}
+
+div.post-page time{
+  text-align: center;
+  display: block;
+  font-size: 0.8rem;
+  color: #747474;
+}
+
+div.post-page div.author{
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+div.post-page div.content{
+  line-height: 1.6rem;
 }
